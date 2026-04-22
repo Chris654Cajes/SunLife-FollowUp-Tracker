@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FollowUp Tracker</string>
+    <string name="add_prospect">Add Prospect</string>
+    <string name="prewritten_messages">Pre-written Messages</string>
+    <string name="status_hot">Hot</string>
+    <string name="status_warm">Warm</string>
+    <string name="status_cold">Cold</string>
+</resources>

@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FollowUp Tracker - User Manual</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .phone-mockup {
+            width: 300px;
+            height: 600px;
+            border-radius: 30px;
+            border: 8px solid #1f2937;
+            background: white;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: #f3f4f6;
+        }
+        .status-badge {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            display: inline-block;
+        }
+        .hot-status { background: #fef2f2; color: #dc2626; }
+        .warm-status { background: #fef3c7; color: #d97706; }
+        .cold-status { background: #dbeafe; color: #2563eb; }
+        
+        .scroll-indicator {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="gradient-bg text-white shadow-lg">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <i class="fas fa-calendar-check text-3xl"></i>
+                    <div>
+                        <h1 class="text-2xl font-bold">FollowUp Tracker</h1>
+                        <p class="text-purple-100">User Manual & Guide</p>
+                    </div>
+                </div>
+                <div class="text-sm">
+                    <p>Version 1.0</p>
+                    <p>© 2025 SunLife</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-40">
+        <div class="container mx-auto px-4">
+            <div class="flex space-x-6 overflow-x-auto py-4">
+                <a href="#overview" class="text-gray-700 hover:text-purple-600 font-medium whitespace-nowrap">Overview</a>
+                <a href="#getting-started" class="text-gray-700 hover:text-purple-600 font-medium whitespace-nowrap">Getting Started</a>
+                <a href="#main-features" class="text-gray-700 hover:text-purple-600 font-medium whitespace-nowrap">Main Features</a>
+                <a href="#screens" class="text-gray-700 hover:text-purple-600 font-medium whitespace-nowrap">App Screens</a>
+                <a href="#tips" class="text-gray-700 hover:text-purple-600 font-medium whitespace-nowrap">Pro Tips</a>
+                <a href="#support" class="text-gray-700 hover:text-purple-600 font-medium whitespace-nowrap">Support</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        
+        <!-- Overview Section -->
+        <section id="overview" class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                <i class="fas fa-info-circle mr-3 text-purple-600"></i>
+                Overview
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-lg shadow-lg p-6 card-hover">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">What is FollowUp Tracker?</h3>
+                    <p class="text-gray-600 mb-4">
+                        FollowUp Tracker is a professional mobile application designed to help sales professionals, 
+                        business representatives, and entrepreneurs manage their prospect follow-ups efficiently. 
+                        Never miss an important follow-up again!
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">Sales Management</span>
+                        <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">CRM Tool</span>
+                        <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">Productivity</span>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-lg p-6 card-hover">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">Key Benefits</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span class="text-gray-600">Never miss important follow-up deadlines</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span class="text-gray-600">Organize prospects by priority (Hot/Warm/Cold)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span class="text-gray-600">Save time with pre-written message templates</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span class="text-gray-600">Get timely notifications for follow-ups</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Getting Started -->
+        <section id="getting-started" class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                <i class="fas fa-rocket mr-3 text-purple-600"></i>
+                Getting Started
+            </h2>
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <div class="grid md:grid-cols-4 gap-6">
+                    <div class="text-center">
+                        <div class="bg-purple-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl font-bold text-purple-600">1</span>
+                        </div>
+                        <h4 class="font-semibold mb-2">Install & Open</h4>
+                        <p class="text-sm text-gray-600">Download and launch the app from your device</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-purple-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl font-bold text-purple-600">2</span>
+                        </div>
+                        <h4 class="font-semibold mb-2">Grant Permissions</h4>
+                        <p class="text-sm text-gray-600">Allow notifications for follow-up reminders</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-purple-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl font-bold text-purple-600">3</span>
+                        </div>
+                        <h4 class="font-semibold mb-2">Add First Prospect</h4>
+                        <p class="text-sm text-gray-600">Tap the + button to add your first prospect</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-purple-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl font-bold text-purple-600">4</span>
+                        </div>
+                        <h4 class="font-semibold mb-2">Set Follow-up</h4>
+                        <p class="text-sm text-gray-600">Schedule follow-up dates and create message templates</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Features -->
+        <section id="main-features" class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                <i class="fas fa-star mr-3 text-purple-600"></i>
+                Main Features
+            </h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white rounded-lg shadow-lg p-6 card-hover">
+                    <div class="text-purple-600 text-3xl mb-4">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Prospect Management</h3>
+                    <p class="text-gray-600 mb-4">Add, edit, and organize your prospects with detailed contact information and status tracking.</p>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li>· Name and contact details</li>
+                        <li>· Status categorization</li>
+                        <li>· Follow-up scheduling</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-lg p-6 card-hover">
+                    <div class="text-purple-600 text-3xl mb-4">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Smart Notifications</h3>
+                    <p class="text-gray-600 mb-4">Never miss a follow-up with intelligent notification system that works even after device restarts.</p>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li>· Timely reminders</li>
+                        <li>· Persistent notifications</li>
+                        <li>· Boot-compatible</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-lg p-6 card-hover">
+                    <div class="text-purple-600 text-3xl mb-4">
+                        <i class="fas fa-comment-dots"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Message Templates</h3>
+                    <p class="text-gray-600 mb-4">Create and manage reusable message templates with personalization placeholders.</p>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li>· Custom templates</li>
+                        <li>· Name personalization</li>
+                        <li>· Day-specific scheduling</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- App Screens -->
+        <section id="screens" class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                <i class="fas fa-mobile-alt mr-3 text-purple-600"></i>
+                App Screens & Interface
+            </h2>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <!-- Main Screen Mockup -->
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-xl font-semibold mb-4 text-center">Main Screen</h3>
+                    <div class="phone-mockup mx-auto">
+                        <div class="phone-screen">
+                            <!-- Status Bar -->
+                            <div class="bg-purple-600 text-white px-4 py-2 text-xs flex justify-between">
+                                <span>9:41 AM</span>
+                                <span>100%</span>
+                            </div>
+                            <!-- App Bar -->
+                            <div class="bg-purple-600 text-white px-4 py-3 flex items-center">
+                                <i class="fas fa-calendar-check mr-3"></i>
+                                <span class="font-semibold">FollowUp Tracker</span>
+                            </div>
+                            <!-- Content -->
+                            <div class="p-4">
+                                <!-- Prospect Card 1 -->
+                                <div class="bg-white rounded-lg shadow p-3 mb-3">
+                                    <div class="flex justify-between items-start mb-2">
+                                        <h4 class="font-semibold text-gray-800">John Smith</h4>
+                                        <span class="status-badge hot-status">HOT</span>
+                                    </div>
+                                    <p class="text-sm text-gray-600 mb-2">
+                                        <i class="fas fa-phone text-xs mr-1"></i> +1234567890
+                                    </p>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-xs text-gray-400">Follow-up: Tomorrow</span>
+                                        <button class="text-red-500 text-xs">Delete</button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Prospect Card 2 -->
+                                <div class="bg-white rounded-lg shadow p-3 mb-3">
+                                    <div class="flex justify-between items-start mb-2">
+                                        <h4 class="font-semibold text-gray-800">Sarah Johnson</h4>
+                                        <span class="status-badge warm-status">WARM</span>
+                                    </div>
+                                    <p class="text-sm text-gray-600 mb-2">
+                                        <i class="fas fa-envelope text-xs mr-1"></i> sarah@email.com
+                                    </p>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-xs text-gray-400">Follow-up: Next Week</span>
+                                        <button class="text-red-500 text-xs">Delete</button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Prospect Card 3 -->
+                                <div class="bg-white rounded-lg shadow p-3 mb-3">
+                                    <div class="flex justify-between items-start mb-2">
+                                        <h4 class="font-semibold text-gray-800">Mike Davis</h4>
+                                        <span class="status-badge cold-status">COLD</span>
+                                    </div>
+                                    <p class="text-sm text-gray-600 mb-2">
+                                        <i class="fas fa-phone text-xs mr-1"></i> +0987654321
+                                    </p>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-xs text-gray-400">Follow-up: Next Month</span>
+                                        <button class="text-red-500 text-xs">Delete</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- FAB -->
+                            <div class="absolute bottom-6 right-6">
+                                <div class="bg-purple-600 rounded-full w-14 h-14 flex items-center justify-center shadow-lg">
+                                    <i class="fas fa-plus text-white text-xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-600 mt-4 text-center">
+                        View all prospects with status indicators and quick actions
+                    </p>
+                </div>
+
+                <!-- Add Prospect Screen Mockup -->
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-xl font-semibold mb-4 text-center">Add Prospect</h3>
+                    <div class="phone-mockup mx-auto">
+                        <div class="phone-screen">
+                            <!-- Status Bar -->
+                            <div class="bg-purple-600 text-white px-4 py-2 text-xs flex justify-between">
+                                <span>9:41 AM</span>
+                                <span>100%</span>
+                            </div>
+                            <!-- App Bar -->
+                            <div class="bg-purple-600 text-white px-4 py-3 flex items-center">
+                                <i class="fas fa-arrow-left mr-3"></i>
+                                <span class="font-semibold">Add Prospect</span>
+                            </div>
+                            <!-- Form -->
+                            <div class="p-4">
+                                <div class="mb-4">
+                                    <label class="text-xs text-gray-600 mb-1 block">Name *</label>
+                                    <div class="border border-gray-300 rounded px-3 py-2 text-sm">
+                                        Enter prospect name
+                                    </div>
+                                </div>
+                                <div class="mb-4">
+                                    <label class="text-xs text-gray-600 mb-1 block">Contact *</label>
+                                    <div class="border border-gray-300 rounded px-3 py-2 text-sm">
+                                        Phone or Email
+                                    </div>
+                                </div>
+                                <div class="mb-4">
+                                    <label class="text-xs text-gray-600 mb-1 block">Status</label>
+                                    <div class="border border-gray-300 rounded px-3 py-2 text-sm flex justify-between">
+                                        <span>Select Status</span>
+                                        <i class="fas fa-chevron-down text-gray-400"></i>
+                                    </div>
+                                </div>
+                                <div class="mb-4">
+                                    <label class="text-xs text-gray-600 mb-1 block">Follow-up Date</label>
+                                    <div class="border border-gray-300 rounded px-3 py-2 text-sm flex justify-between">
+                                        <span>Select Date</span>
+                                        <i class="fas fa-calendar text-gray-400"></i>
+                                    </div>
+                                </div>
+                                <div class="mb-4">
+                                    <label class="text-xs text-gray-600 mb-1 block">Notes</label>
+                                    <div class="border border-gray-300 rounded px-3 py-4 text-sm h-20">
+                                        Additional notes...
+                                    </div>
+                                </div>
+                                <button class="bg-purple-600 text-white rounded py-3 w-full text-sm font-semibold">
+                                    Save Prospect
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-600 mt-4 text-center">
+                        Add new prospects with detailed information and follow-up scheduling
+                    </p>
+                </div>
+
+                <!-- Message Templates Screen Mockup -->
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-xl font-semibold mb-4 text-center">Message Templates</h3>
+                    <div class="phone-mockup mx-auto">
+                        <div class="phone-screen">
+                            <!-- Status Bar -->
+                            <div class="bg-purple-600 text-white px-4 py-2 text-xs flex justify-between">
+                                <span>9:41 AM</span>
+                                <span>100%</span>
+                            </div>
+                            <!-- App Bar -->
+                            <div class="bg-purple-600 text-white px-4 py-3 flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <i class="fas fa-arrow-left mr-3"></i>
+                                    <span class="font-semibold">Messages</span>
+                                </div>
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <!-- Templates List -->
+                            <div class="p-4">
+                                <!-- Template 1 -->
+                                <div class="bg-white rounded-lg shadow p-3 mb-3">
+                                    <div class="flex justify-between items-start mb-2">
+                                        <h4 class="font-semibold text-gray-800 text-sm">Initial Contact</h4>
+                                        <span class="bg-purple-100 text-purple-700 px-2 py-1 rounded text-xs">Day 1</span>
+                                    </div>
+                                    <p class="text-xs text-gray-600 mb-2 line-clamp-2">
+                                        Hi {name}, I wanted to reach out and introduce myself...
+                                    </p>
+                                    <div class="flex justify-end space-x-2">
+                                        <button class="text-purple-600 text-xs">Edit</button>
+                                        <button class="text-red-500 text-xs">Delete</button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Template 2 -->
+                                <div class="bg-white rounded-lg shadow p-3 mb-3">
+                                    <div class="flex justify-between items-start mb-2">
+                                        <h4 class="font-semibold text-gray-800 text-sm">Follow-up</h4>
+                                        <span class="bg-purple-100 text-purple-700 px-2 py-1 rounded text-xs">Day 3</span>
+                                    </div>
+                                    <p class="text-xs text-gray-600 mb-2 line-clamp-2">
+                                        Hi {name}, just wanted to follow up on our previous conversation...
+                                    </p>
+                                    <div class="flex justify-end space-x-2">
+                                        <button class="text-purple-600 text-xs">Edit</button>
+                                        <button class="text-red-500 text-xs">Delete</button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Template 3 -->
+                                <div class="bg-white rounded-lg shadow p-3 mb-3">
+                                    <div class="flex justify-between items-start mb-2">
+                                        <h4 class="font-semibold text-gray-800 text-sm">Final Follow-up</h4>
+                                        <span class="bg-purple-100 text-purple-700 px-2 py-1 rounded text-xs">Day 7</span>
+                                    </div>
+                                    <p class="text-xs text-gray-600 mb-2 line-clamp-2">
+                                        Hi {name}, this is my final attempt to reach out...
+                                    </p>
+                                    <div class="flex justify-end space-x-2">
+                                        <button class="text-purple-600 text-xs">Edit</button>
+                                        <button class="text-red-500 text-xs">Delete</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-600 mt-4 text-center">
+                        Manage message templates with scheduling and personalization
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Status Guide -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Understanding Status Levels</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white rounded-lg shadow-lg p-6 border-l-4 border-red-500">
+                    <div class="flex items-center mb-3">
+                        <span class="status-badge hot-status mr-3">HOT</span>
+                        <h3 class="font-semibold">High Priority</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">Prospects showing strong interest or ready to close. Requires immediate attention and frequent follow-ups.</p>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-lg p-6 border-l-4 border-yellow-500">
+                    <div class="flex items-center mb-3">
+                        <span class="status-badge warm-status mr-3">WARM</span>
+                        <h3 class="font-semibold">Medium Priority</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">Prospects showing some interest but need nurturing. Regular follow-ups recommended.</p>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-lg p-6 border-l-4 border-blue-500">
+                    <div class="flex items-center mb-3">
+                        <span class="status-badge cold-status mr-3">COLD</span>
+                        <h3 class="font-semibold">Low Priority</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">New leads or unresponsive prospects. Occasional follow-ups to maintain contact.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pro Tips -->
+        <section id="tips" class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                <i class="fas fa-lightbulb mr-3 text-purple-600"></i>
+                Pro Tips & Best Practices
+            </h2>
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="font-semibold text-lg mb-4 text-purple-600">Effective Follow-up Strategies</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                <div>
+                                    <strong>Be Consistent:</strong> Set regular follow-up intervals and stick to them
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                <div>
+                                    <strong>Personalize Messages:</strong> Use the {name} placeholder in templates
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                <div>
+                                    <strong>Update Status Regularly:</strong> Keep prospect status current
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                <div>
+                                    <strong>Set Realistic Dates:</strong> Don't overpromise follow-up timing
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="font-semibold text-lg mb-4 text-purple-600">App Usage Tips</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                <div>
+                                    <strong>Enable Notifications:</strong> Allow app notifications for reminders
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                <div>
+                                    <strong>Backup Templates:</strong> Keep important templates saved
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                <div>
+                                    <strong>Review Daily:</strong> Check your prospect list each morning
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                <div>
+                                    <strong>Clean Up Regularly:</strong> Remove inactive or closed prospects
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Troubleshooting -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Troubleshooting</h2>
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <div class="space-y-4">
+                    <div class="border-l-4 border-purple-500 pl-4">
+                        <h4 class="font-semibold mb-2">Not receiving notifications?</h4>
+                        <p class="text-gray-600 text-sm">Check your device settings and ensure the app has notification permissions. Also verify that the app is not in battery optimization mode.</p>
+                    </div>
+                    <div class="border-l-4 border-purple-500 pl-4">
+                        <h4 class="font-semibold mb-2">App crashes on startup?</h4>
+                        <p class="text-gray-600 text-sm">Try clearing the app cache and restarting. If the issue persists, contact support with your device details.</p>
+                    </div>
+                    <div class="border-l-4 border-purple-500 pl-4">
+                        <h4 class="font-semibold mb-2">Missing follow-ups after restart?</h4>
+                        <p class="text-gray-600 text-sm">The app automatically handles device restarts. If notifications are missing, check that the app has the necessary permissions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Support -->
+        <section id="support" class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                <i class="fas fa-headset mr-3 text-purple-600"></i>
+                Support & Contact
+            </h2>
+            <div class="bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg shadow-lg p-8 text-white">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">Need Help?</h3>
+                        <p class="mb-6">Our support team is here to help you make the most of FollowUp Tracker. Whether you have technical questions or need guidance on using the app effectively, we're here for you.</p>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <i class="fas fa-envelope mr-3"></i>
+                                <span>support@sunlife.com</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-phone mr-3"></i>
+                                <span>1-800-SUNLIFE</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-clock mr-3"></i>
+                                <span>Mon-Fri, 9AM-5PM EST</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">Quick Links</h3>
+                        <div class="space-y-3">
+                            <a href="#" class="block bg-white bg-opacity-20 rounded p-3 hover:bg-opacity-30 transition">
+                                <i class="fas fa-book mr-2"></i> Detailed User Guide
+                            </a>
+                            <a href="#" class="block bg-white bg-opacity-20 rounded p-3 hover:bg-opacity-30 transition">
+                                <i class="fas fa-video mr-2"></i> Video Tutorials
+                            </a>
+                            <a href="#" class="block bg-white bg-opacity-20 rounded p-3 hover:bg-opacity-30 transition">
+                                <i class="fas fa-comments mr-2"></i> Community Forum
+                            </a>
+                            <a href="#" class="block bg-white bg-opacity-20 rounded p-3 hover:bg-opacity-30 transition">
+                                <i class="fas fa-bug mr-2"></i> Report an Issue
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <div class="flex items-center justify-center mb-4">
+                    <i class="fas fa-calendar-check text-2xl mr-3"></i>
+                    <span class="text-xl font-semibold">FollowUp Tracker</span>
+                </div>
+                <p class="text-gray-400 mb-2">© 2025 SunLife. All rights reserved.</p>
+                <p class="text-gray-400 text-sm">Version 1.0 | User Manual</p>
+                <div class="flex justify-center space-x-4 mt-4">
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" class="fixed bottom-8 right-8 bg-purple-600 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg hidden hover:bg-purple-700 transition">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Show/hide scroll to top button
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.remove('hidden');
+            } else {
+                scrollToTopBtn.classList.add('hidden');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Add active state to navigation based on scroll position
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-purple-600');
+                link.classList.add('text-gray-700');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.remove('text-gray-700');
+                    link.classList.add('text-purple-600');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
